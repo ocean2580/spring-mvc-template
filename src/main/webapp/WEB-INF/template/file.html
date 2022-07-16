@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>This is file</title>
+</head>
+<body>
+    <a th:href="@{/F/testDown}">Download</a><br>
+    <form th:action="@{/F/testUp}" method="post" enctype="multipart/form-data">
+<!--   photo 被封装     -->
+        photo:<input type="file" name="photo"><br>
+        <input type="submit" value="upload"><br>
+    </form><br>
+
+</body>
+</html>

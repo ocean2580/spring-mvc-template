@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HttpConvert</title>
+</head>
+<body>
+<form method="post" th:action="@{/HC/testRequestBody}">
+    name:<input type="text" name="name"><br>
+    password:<input type="text" name="password"><br>
+    <input type="submit" value="testRequestBody"><br>
+</form>
+
+<form method="post" th:action="@{/HC/testRequestEntity}">
+    name:<input type="text" name="name"><br>
+    password:<input type="text" name="password"><br>
+    <input type="submit" value="testRequestEntity"><br>
+</form>
+
+<a th:href="@{/HC/testResponse}">HttpServletResponse</a><br>
+<a th:href="@{/HC/testResponseBody}">ResponseBody</a><br>
+<a th:href="@{/HC/testUser}">User</a><br>
+
+<div id="app">
+    <a @click="testAxios" th:href="@{/HC/testAxios}">ajax</a><br>
+</div>
+
+<script type="text/javascript" th:src="@{/static/js/vue.js}" ></script>
+<script type="text/javascript" th:src="@{/static/js/axios.min.js}" ></script>
+<script>
+    new Vue({
+        el:"#app",
+        methods:{
+            testAxios:function (event) {
+                axios({
+                    method:"post",
+                    url:event.target.href,
+
+                    params:{
+                        admin:"user",
+                        pwd:"12321"
+                    }
+                }).then( response => alert(response.data));
+
+                event.preventDefault();
+            }
+        }
+    })
+
+</script>
+</body>
+</html>
