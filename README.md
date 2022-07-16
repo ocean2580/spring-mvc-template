@@ -1,2 +1,2 @@
 # spring-mvc-template
-暂时还没想好😂
+用了vue.js
